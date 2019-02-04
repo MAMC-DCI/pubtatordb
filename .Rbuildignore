@@ -1,0 +1,9 @@
+^codecov\.yml$
+^appveyor\.yml$
+^\.travis\.yml$
+^cran-comments\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+pubtatordb_Documentation.docx
+OVERVIEW
+annotation_file.yml
