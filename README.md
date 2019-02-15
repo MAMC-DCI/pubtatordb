@@ -3,7 +3,7 @@
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/pubtatordb)](https://cran.r-project.org/package=pubtatordb)
 [![Travis-CI Build Status](https://travis-ci.org/MAMC-DCI/pubtatordb.svg?branch=master)](https://travis-ci.org/MAMC-DCI/pubtatordb#)
-<!-- [![Build status](https://ci.appveyor.com/api/projects/status/rmci2ek7qdsshrsu?svg=true)](https://ci.appveyor.com/project/mamcdci/pubtatordb) -->
+[![Build status](https://ci.appveyor.com/api/projects/status/deltes4sus3dcj69?svg=true)](https://ci.appveyor.com/project/mamcdci/pubtatordb)
 [![Coverage Status](https://img.shields.io/codecov/c/github/mamc-dci/pubtatordb/master.svg)](https://codecov.io/github/mamc-dci/pubtatordb?branch=master)
 
 
