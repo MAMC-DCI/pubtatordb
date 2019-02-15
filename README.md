@@ -1,11 +1,10 @@
 # pubtatordb
 
 
-[![CRAN status](https://www.r-pkg.org/badges/version/pubtatordb)](https://cran.r-project.org/package=pubtatordb)
-[![Travis-CI Build Status](https://travis-ci.org/mamc-dci/pubtatordb.svg?branch=master)](https://travis-ci.org/mamc-dci/pubtatordb)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/mamc-dci/pubtatordb?branch=master&svg=true)](https://ci.appveyor.com/project/mamc-dci/pubtatordb)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/pubtatordb)](https://cran.r-project.org/package=pubtatordb)
+[![Travis-CI Build Status](https://travis-ci.org/MAMC-DCI/pubtatordb.svg?branch=master)](https://travis-ci.org/MAMC-DCI/pubtatordb#)
+<!-- [![Build status](https://ci.appveyor.com/api/projects/status/rmci2ek7qdsshrsu?svg=true)](https://ci.appveyor.com/project/mamcdci/pubtatordb) -->
 [![Coverage Status](https://img.shields.io/codecov/c/github/mamc-dci/pubtatordb/master.svg)](https://codecov.io/github/mamc-dci/pubtatordb?branch=master)
-[![](https://cranlogs.r-pkg.org/badges/pubtatordb)](https://cran.r-project.org/package=pubtatordb)
 
 
 The goal of pubtatordb is to allow users to create and query a local version of the PubTator database. [PubTator](https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/PubTator/) provides detailed annotations of abstracts found on PubMed. It is therefore very useful for directing research questions. While PubTator does provide an API, the use of a local database is more appropriate for high-throughput analyses. pubtatordb provides the tools necessary to download, setup, and query such a database.

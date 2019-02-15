@@ -35,7 +35,7 @@ The version on GitHub can be downloaded using the devtools package with:
 
 ```{r, eval=FALSE}
 install.packages("devtools")
-devtools::install_github("MAMC-DCI/pubtatordb")
+devtools::install_github("mamc-dci/pubtatordb")
 ```
 
 
