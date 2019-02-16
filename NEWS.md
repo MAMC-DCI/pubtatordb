@@ -1,3 +1,4 @@
-# pubtatordb 0.1.0
+# pubtatordb 0.1.1
 
-* Added a `NEWS.md` file to track changes to the package.
+* Changed title field to title case.
+* Added URLs for 'PubTator' and 'PubMed'.
