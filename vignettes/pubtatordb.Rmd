@@ -57,17 +57,19 @@ After loading the package, database setup and querying can be accomplished in fo
 - Query the database
 
 
-The data can be downloaded with:
+After the user manually creates a folder to store the data, the user can define the path to that folder and then download the data to that location:
 ```{r, eval=FALSE}
 # Download the data.
-download_pt(getwd())
+# Use the full path. Writing to the temp directory is not recommended.
+download_dir <- tempdir()
+download_pt(download_dir)
 ```
 
 
 After defining the path to the download directory created above, the database can be created with:
 ```{r, eval=FALSE}
-# Define the download directory.
-pubtator_path <- file.path(getwd(), "PubTator")
+# Define the data directory, a subdirectory of the above directory.
+pubtator_path <- file.path(download_dir, "PubTator")
 
 # Create the database.
 pt_to_sql(
