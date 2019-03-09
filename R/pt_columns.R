@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' db_con <- pt_connector(pt_path)
 #' pubtator_columns(db_con, "gene")
 #' }

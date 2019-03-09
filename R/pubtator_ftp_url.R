@@ -3,7 +3,7 @@
 #' @return A character string giving the ftp url for PubTator.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' pubtator_ftp_url()
 #' }
 pubtator_ftp_url <- function(){

@@ -20,7 +20,7 @@ A character vector of the column names for a given table.
 List the column names for a table in the PubTator sqlite database
 }
 \examples{
-\dontrun{
+\donttest{
 db_con <- pt_connector(pt_path)
 pubtator_columns(db_con, "gene")
 }

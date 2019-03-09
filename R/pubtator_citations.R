@@ -5,7 +5,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' pubtator_citations()
 #' }
 pubtator_citations <- function(){

@@ -14,7 +14,7 @@ A character vector where names are table names and values are dataset
 Table and dataset definitions
 }
 \examples{
-\dontrun{
+\donttest{
 pubtator_tables()
 }
 }

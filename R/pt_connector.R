@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' pt_connector("D:/Reference_data/PubTator")
 #' }
 pt_connector <- function(pt_path){

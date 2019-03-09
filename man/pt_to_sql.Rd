@@ -20,7 +20,11 @@ removed following successful extraction.}
 Create sqlite database from the pubtator data.
 }
 \examples{
-\dontrun{
-pt_to_sql("D:/Reference_data/PubTator")
+\donttest{
+download_path <- tempdir()
+current_dir <- getwd()
+setwd(download_path)
+pt_to_sql("PubTator")
+setwd(current_dir)
 }
 }

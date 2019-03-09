@@ -1,4 +1,5 @@
-# pubtatordb 0.1.1
+# pubtatordb 0.1.2
 
-* Changed title field to title case.
-* Added URLs for 'PubTator' and 'PubMed'.
+* Put 'PubTator' in single quotes in the title in the DESCRIPTION file.
+* Changed dontrun to donttest.
+* Updated the vignette so that users don't accidentally write to their top-level directory

@@ -10,8 +10,12 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' pt_to_sql("D:/Reference_data/PubTator")
+#' \donttest{
+#' download_path <- tempdir()
+#' current_dir <- getwd()
+#' setwd(download_path)
+#' pt_to_sql("PubTator")
+#' setwd(current_dir)
 #' }
 pt_to_sql <- function(
   pt_path,

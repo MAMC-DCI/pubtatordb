@@ -4,7 +4,7 @@
 #'   names.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' pubtator_tables()
 #' }
 pubtator_tables <- function(){

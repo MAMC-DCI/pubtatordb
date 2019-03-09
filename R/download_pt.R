@@ -11,8 +11,11 @@
 #' @importFrom utils download.file
 #'
 #' @examples
-#' \dontrun{
-#' download_pt(getwd())
+#' \donttest{
+#' # Use the full path. The files are large. Writing somewhere other than the
+#' # temp directory is recommended.
+#' download_path <- tempdir()
+#' download_pt(dowload_path)
 #' }
 download_pt <- function(pubtator_parent_path, ...){
   # Define the new directory path.

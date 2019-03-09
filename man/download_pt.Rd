@@ -20,7 +20,10 @@ The path to the newly created directory. This can be passed to other
 Download PubTator data via ftp.
 }
 \examples{
-\dontrun{
-download_pt(getwd())
+\donttest{
+# Use the full path. The files are large. Writing somewhere other than the
+# temp directory is recommended.
+download_path <- tempdir()
+download_pt(dowload_path)
 }
 }

@@ -17,7 +17,7 @@ A character vector of the names of the tables found in the database.
 List the tables in the PubTator sqlite database
 }
 \examples{
-\dontrun{
+\donttest{
 db_con <- pt_connector(pt_path)
 pt_tables(db_con)
 }

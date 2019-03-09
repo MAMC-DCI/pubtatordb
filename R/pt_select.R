@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' db_con <- pt_connector(pt_path)
 #' pt_select(
 #'   db_con,

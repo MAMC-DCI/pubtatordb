@@ -13,7 +13,7 @@ A character string giving the ftp url for PubTator.
 NCBI's ftp url definition for PubTator.
 }
 \examples{
-\dontrun{
+\donttest{
 pubtator_ftp_url()
 }
 }

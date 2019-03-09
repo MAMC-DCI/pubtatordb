@@ -17,7 +17,7 @@ A SQLiteConnection
 Connect to pubtator.sqlite
 }
 \examples{
-\dontrun{
+\donttest{
 pt_connector("D:/Reference_data/PubTator")
 }
 }
