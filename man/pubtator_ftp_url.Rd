@@ -12,8 +12,3 @@ A character string giving the ftp url for PubTator.
 \description{
 NCBI's ftp url definition for PubTator.
 }
-\examples{
-\donttest{
-pubtator_ftp_url()
-}
-}

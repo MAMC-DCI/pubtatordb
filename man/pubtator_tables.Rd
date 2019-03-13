@@ -13,8 +13,3 @@ A character vector where names are table names and values are dataset
 \description{
 Table and dataset definitions
 }
-\examples{
-\donttest{
-pubtator_tables()
-}
-}

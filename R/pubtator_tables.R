@@ -2,11 +2,6 @@
 #'
 #' @return A character vector where names are table names and values are dataset
 #'   names.
-#'
-#' @examples
-#' \donttest{
-#' pubtator_tables()
-#' }
 pubtator_tables <- function(){
   c(
     "chemical" = "chemical2pubtator",

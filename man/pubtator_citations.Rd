@@ -11,7 +11,5 @@ pubtator_citations()
 See the citations for PubTator
 }
 \examples{
-\donttest{
 pubtator_citations()
-}
 }

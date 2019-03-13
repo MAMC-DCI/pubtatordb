@@ -5,9 +5,7 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' pubtator_citations()
-#' }
 pubtator_citations <- function(){
   # Define the citation information.
   citations <- list(
