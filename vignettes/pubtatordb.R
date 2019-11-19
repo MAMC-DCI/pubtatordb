@@ -9,18 +9,21 @@ knitr::opts_chunk$set(
 
 ## ---- eval=FALSE---------------------------------------------------------
 #  install.packages("devtools")
-#  devtools::install_github("MAMC-DCI/pubtatordb")
+#  devtools::install_github("mamc-dci/pubtatordb")
+
+## ----message=FALSE, warning=FALSE----------------------------------------
+# Load the package.
+library(pubtatordb)
 
 ## ---- eval=FALSE---------------------------------------------------------
-#  # Load the package.
-#  library(pubtatordb)
-#  
 #  # Download the data.
-#  download_pt(getwd())
+#  # Use the full path. Writing to the temp directory is not recommended.
+#  download_dir <- tempdir()
+#  download_pt(download_dir)
 
 ## ---- eval=FALSE---------------------------------------------------------
-#  # Define the download directory.
-#  pubtator_path <- file.path(getwd(), "PubTator")
+#  # Define the data directory, a subdirectory of the above directory.
+#  pubtator_path <- file.path(download_dir, "PubTator")
 #  
 #  # Create the database.
 #  pt_to_sql(
@@ -50,7 +53,7 @@ knitr::opts_chunk$set(
 #    db_con,
 #    "gene",
 #    columns = c("PMID", "ENTREZID"),
-#    keys = C("7356", "4199"),
+#    keys = c("7356", "4199"),
 #    keytype = "ENTREZID",
 #    limit = 5
 #  )
