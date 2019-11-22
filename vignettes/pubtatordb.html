@@ -13,7 +13,7 @@
 
 <meta name="author" content="Zachary Colburn" />
 
-<meta name="date" content="2019-11-19" />
+<meta name="date" content="2019-11-22" />
 
 <title>pubtatordb</title>
 
@@ -21,9 +21,9 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -33,14 +33,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -49,9 +51,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -304,7 +306,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">pubtatordb</h1>
 <h4 class="author">Zachary Colburn</h4>
-<h4 class="date">2019-11-19</h4>
+<h4 class="date">2019-11-22</h4>
 
 
 
@@ -315,16 +317,16 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div id="installation" class="section level2">
 <h2>Installation</h2>
 <p>You can install the released version of pubtatordb from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;pubtatordb&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;pubtatordb&quot;</span>)</span></code></pre></div>
 <p>The version on GitHub can be downloaded using the devtools package with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</a>
-<a class="sourceLine" id="cb2-2" title="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;mamc-dci/pubtatordb&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;mamc-dci/pubtatordb&quot;</span>)</span></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
 <p>Load the package.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Load the package.</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw">library</span>(pubtatordb)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Load the package.</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">library</span>(pubtatordb)</span></code></pre></div>
 <p>After loading the package, database setup and querying can be accomplished in four steps.</p>
 <ul>
 <li>Data download</li>
@@ -333,60 +335,60 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <li>Query the database</li>
 </ul>
 <p>After the user manually creates a folder to store the data, the user can define the path to that folder and then download the data to that location:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># Download the data.</span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="co"># Use the full path. Writing to the temp directory is not recommended.</span></a>
-<a class="sourceLine" id="cb4-3" title="3">download_dir &lt;-<span class="st"> </span><span class="kw">tempdir</span>()</a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="kw">download_pt</span>(download_dir)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Download the data.</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># Use the full path. Writing to the temp directory is not recommended.</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>download_dir &lt;-<span class="st"> </span><span class="kw">tempdir</span>()</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">download_pt</span>(download_dir)</span></code></pre></div>
 <p>After defining the path to the download directory created above, the database can be created with:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># Define the data directory, a subdirectory of the above directory.</span></a>
-<a class="sourceLine" id="cb5-2" title="2">pubtator_path &lt;-<span class="st"> </span><span class="kw">file.path</span>(download_dir, <span class="st">&quot;PubTator&quot;</span>)</a>
-<a class="sourceLine" id="cb5-3" title="3"></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="co"># Create the database.</span></a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="kw">pt_to_sql</span>(</a>
-<a class="sourceLine" id="cb5-6" title="6">  pubtator_path,</a>
-<a class="sourceLine" id="cb5-7" title="7">  <span class="dt">skip_behavior =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb5-8" title="8">  <span class="dt">remove_behavior =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb5-9" title="9">)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Define the data directory, a subdirectory of the above directory.</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>pubtator_path &lt;-<span class="st"> </span><span class="kw">file.path</span>(download_dir, <span class="st">&quot;PubTator&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># Create the database.</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw">pt_to_sql</span>(</span>
+<span id="cb5-6"><a href="#cb5-6"></a>  pubtator_path,</span>
+<span id="cb5-7"><a href="#cb5-7"></a>  <span class="dt">skip_behavior =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb5-8"><a href="#cb5-8"></a>  <span class="dt">remove_behavior =</span> <span class="ot">TRUE</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>)</span></code></pre></div>
 <p>If the .gz files from PubTator have already been extracted, their extraction can be skipped with the <strong>skip_behavior</strong> argument. After their insertion into the database, both the .gz and uncompressed files can be removed using the <strong>remove_behavior</strong> argument.</p>
 <p>A connection can be created to the database using <strong>pt_connector</strong>. Note that this is a wrapper for the <strong>dbConnect</strong> function of the DBI package.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># Create a connection to the database.</span></a>
-<a class="sourceLine" id="cb6-2" title="2">db_con &lt;-<span class="st"> </span><span class="kw">pt_connector</span>(pubtator_path)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Create a connection to the database.</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>db_con &lt;-<span class="st"> </span><span class="kw">pt_connector</span>(pubtator_path)</span></code></pre></div>
 <p>Querying the data is accomplished using the <strong>pt_select</strong> function. The first five rows of the gene table can be selected with:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># Query the data.</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="kw">pt_select</span>(</a>
-<a class="sourceLine" id="cb7-3" title="3">  db_con,</a>
-<a class="sourceLine" id="cb7-4" title="4">  <span class="st">&quot;gene&quot;</span>,</a>
-<a class="sourceLine" id="cb7-5" title="5">  <span class="dt">columns =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb7-6" title="6">  <span class="dt">keys =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb7-7" title="7">  <span class="dt">keytype =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb7-8" title="8">  <span class="dt">limit =</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb7-9" title="9">)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Query the data.</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">pt_select</span>(</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  db_con,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="st">&quot;gene&quot;</span>,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="dt">columns =</span> <span class="ot">NULL</span>,</span>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="dt">keys =</span> <span class="ot">NULL</span>,</span>
+<span id="cb7-7"><a href="#cb7-7"></a>  <span class="dt">keytype =</span> <span class="ot">NULL</span>,</span>
+<span id="cb7-8"><a href="#cb7-8"></a>  <span class="dt">limit =</span> <span class="dv">5</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>)</span></code></pre></div>
 <p>The first five results for PMIDs in which the genes with ENTREZ IDs 7356 or 4199 were mentioned can be selected with:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># Query the data.</span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="kw">pt_select</span>(</a>
-<a class="sourceLine" id="cb8-3" title="3">  db_con,</a>
-<a class="sourceLine" id="cb8-4" title="4">  <span class="st">&quot;gene&quot;</span>,</a>
-<a class="sourceLine" id="cb8-5" title="5">  <span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;PMID&quot;</span>, <span class="st">&quot;ENTREZID&quot;</span>),</a>
-<a class="sourceLine" id="cb8-6" title="6">  <span class="dt">keys =</span> <span class="kw">c</span>(<span class="st">&quot;7356&quot;</span>, <span class="st">&quot;4199&quot;</span>),</a>
-<a class="sourceLine" id="cb8-7" title="7">  <span class="dt">keytype =</span> <span class="st">&quot;ENTREZID&quot;</span>,</a>
-<a class="sourceLine" id="cb8-8" title="8">  <span class="dt">limit =</span> <span class="dv">5</span></a>
-<a class="sourceLine" id="cb8-9" title="9">)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Query the data.</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">pt_select</span>(</span>
+<span id="cb8-3"><a href="#cb8-3"></a>  db_con,</span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="st">&quot;gene&quot;</span>,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="dt">columns =</span> <span class="kw">c</span>(<span class="st">&quot;PMID&quot;</span>, <span class="st">&quot;ENTREZID&quot;</span>),</span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="dt">keys =</span> <span class="kw">c</span>(<span class="st">&quot;7356&quot;</span>, <span class="st">&quot;4199&quot;</span>),</span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="dt">keytype =</span> <span class="st">&quot;ENTREZID&quot;</span>,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="dt">limit =</span> <span class="dv">5</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>)</span></code></pre></div>
 </div>
 <div id="other-tables" class="section level2">
 <h2>Other tables</h2>
 <p>PubTator has several datasets. The names of tables in the database can be obtained with:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">pt_tables</span>(db_con)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">pt_tables</span>(db_con)</span></code></pre></div>
 <p>The column names for a particular table can be accessed with:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">pt_columns</span>(db_con, <span class="st">&quot;species&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">pt_columns</span>(db_con, <span class="st">&quot;species&quot;</span>)</span></code></pre></div>
 </div>
 <div id="note" class="section level2">
 <h2>Note</h2>
 <p>The citation information for PubTator can be found on the <a href="https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/PubTator/">PubTator</a> website or with:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">pubtator_citations</span>()</a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="co">#&gt; Please cite PubTator in any publications:</span></a>
-<a class="sourceLine" id="cb11-3" title="3"><span class="co">#&gt; 1. Wei CH et. al., PubTator: a Web-based text mining tool for assisting Biocuration, Nucleic acids research, 2013, 41 (W1): W518-W522. doi: 10.1093/nar/gkt44</span></a>
-<a class="sourceLine" id="cb11-4" title="4"><span class="co">#&gt; 2. Wei CH et. al., Accelerating literature curation with text-mining tools: a case study of using PubTator to curate genes in PubMed abstracts, Database (Oxford), bas041, 2012</span></a>
-<a class="sourceLine" id="cb11-5" title="5"><span class="co">#&gt; 3. Wei CH et. al., PubTator: A PubMed-like interactive curation system for document triage and literature curation, in Proceedings of BioCreative 2012 workshop, Washington DC, USA, 145-150, 2012</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">pubtator_citations</span>()</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co">#&gt; Please cite PubTator in any publications:</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#&gt; 1. Wei CH et. al., PubTator: a Web-based text mining tool for assisting Biocuration, Nucleic acids research, 2013, 41 (W1): W518-W522. doi: 10.1093/nar/gkt44</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">#&gt; 2. Wei CH et. al., Accelerating literature curation with text-mining tools: a case study of using PubTator to curate genes in PubMed abstracts, Database (Oxford), bas041, 2012</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">#&gt; 3. Wei CH et. al., PubTator: A PubMed-like interactive curation system for document triage and literature curation, in Proceedings of BioCreative 2012 workshop, Washington DC, USA, 145-150, 2012</span></span></code></pre></div>
 </div>
 <div id="disclaimer" class="section level2">
 <h2>Disclaimer</h2>
