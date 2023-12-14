@@ -4,10 +4,10 @@
 #'   names.
 pubtator_tables <- function(){
   c(
-    "chemical" = "chemical2pubtator",
-    "disease" = "disease2pubtator",
-    "gene" = "gene2pubtator",
-    "mutation" = "mutation2pubtator",
-    "species" = "species2pubtator"
+    "chemical" = "chemical2pubtator3",
+    "disease" = "disease2pubtator3",
+    "gene" = "gene2pubtator3",
+    "mutation" = "mutation2pubtator3",
+    "species" = "species2pubtator3"
   )
 }
